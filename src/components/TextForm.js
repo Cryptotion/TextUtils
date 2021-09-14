@@ -38,16 +38,16 @@ export default function TextForm(props) {
             <div className="mb-3">
             <textarea className="form-control" value= {text} onChange={handleOnChange} style={{backgroundColor: props.mode==='dark'?'grey':'white', color: props.mode==='dark'?'white':'#042743'}} id="myBox" rows="8"></textarea>
             </div>
-            <button className="btn btn-primary mx-2" onClick={handleUpClick}>Convert to UpperCase</button>            
-            <button className="btn btn-primary mx-2" onClick={handleLoClick}>Convert to LowerCase</button>            
-            <button className="btn btn-primary mx-2" onClick={handleCopy}>Copy Text</button>            
+            <button className="btn btn-primary mx-2 my-1" onClick={handleUpClick}>Convert to UpperCase</button>            
+            <button className="btn btn-primary mx-2 my-1" onClick={handleLoClick}>Convert to LowerCase</button>            
+            <button className="btn btn-primary mx-2 my-1" onClick={handleCopy}>Copy Text</button>            
         </div>
         <div className="container my-3" style={{color: props.mode==='dark'?'white':'#042743'}}>
             <h2>Your text summary</h2>
-            <p>{text.split(" ").length -1} words and {text.length} charcters</p>
-            <p>{0.008 * (text.split(" ").length-1)} Minutes read</p>
+            <p>{text.split(/\s+/).filter((element)=>{return element.length!==0}).length} words and {text.length} charcters</p>
+            <p>{0.008 * (text.split(" ").filter((element)=>{return element.length!==0}).length)} Minutes read</p>
             <h2>Preview</h2>
-            <p>{text.length>0?text:"Enter Something in the textbox above to preview it here"}</p>
+            <p>{text.length>0?text:"Nothing to preview!"}</p>
         </div>
         </>
     )
