@@ -1,6 +1,6 @@
-import React, {useState} from 'react'
+import React, { props} from 'react'
 
-export default function About() {
+export default function About(props) {
 
 //     const[myStyle, setmyStyle] = useState({
 //         color: 'black',
@@ -74,9 +74,11 @@ export default function About() {
                 </div>
             </div>
             </div>
-            <div className="container">
-            <button onClick={toggleStyle} type="button" className="btn btn-primary">{btntext}</button>        
             </div>
-        </div>
+
+            /* <div className="container">
+            <button onClick={toggleStyle} type="button" className="btn btn-primary">{btntext}</button>        
+            </div> */
     )
 }
+
