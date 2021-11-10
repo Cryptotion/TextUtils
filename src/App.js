@@ -1,8 +1,8 @@
 
 import './App.css';
-import About from './components/About';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
+import About from './components/About';
 import React, { useState } from 'react'
 import Alert from './components/Alert';
 import {
@@ -36,7 +36,7 @@ function App() {
       setMode ('light')
       document.body.style.backgroundColor = 'white';
       showAlert("Light mode has been enabled", "success")
-      document.title = "TextUtils - Light Mode"
+      // document.title = "TextUtils - Light Mode"
     }
    }
   return (
@@ -45,14 +45,15 @@ function App() {
         <Navbar title="TextUtils5S" mode = {mode} toggleMode={toggleMode} />
         <Alert alert = {alert}/>
         <div className="container my-3">
-        <Switch>
-          <Route exact path="/about ">
-            <About mode = {mode} />
-          </Route>
-          <Route exact path="/">
-           <TextForm showAlert={showAlert} heading="Enter the text to analyze below" mode = {mode}/>
-          </Route>
-        </Switch>
+          <Switch>
+            <Route exact path="/about">
+              <About mode={mode} />
+            </Route>
+           
+            <Route exact path="/">
+            <TextForm showAlert={showAlert} heading="Enter the text to analyze below" mode = {mode}/>
+            </Route>
+          </Switch>
         </div>
         </Router>
     </>
